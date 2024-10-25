@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steam Electrolysis Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Steam Electrolysis Calculator</h1>
+        <label for="waterAmount">Enter amount of water (in liters):</label>
+        <input type="number" id="waterAmount" placeholder="Liters" required>
+        
+        <button id="calculateBtn">Calculate</button>
+        
+        <div id="results" class="hidden">
+            <h2>Results:</h2>
+            <p id="hydrogenOutput"></p>
+            <p id="oxygenOutput"></p>
+            <p id="energyRequired"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
