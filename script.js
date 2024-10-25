@@ -1,28 +1,33 @@
-// Event listener for the button click
-document.getElementById("calculateButton").addEventListener("click", calculateResults);
-
+// Function to calculate results
 function calculateResults() {
-    // Get the water amount from the input field
     const waterAmount = parseFloat(document.getElementById("waterInput").value);
     
     // Validate the input
     if (isNaN(waterAmount) || waterAmount <= 0) {
         document.getElementById("result").textContent = "Please enter a valid water amount.";
-        return; // Exit the function if the input is invalid
+        return;
     }
     
-    // Perform the calculations
-    const molesOfWater = waterAmount / 18.015; // Molar mass of water = 18.015 g/mol
-    const h2Produced = molesOfWater;           // 1 mole of water produces 1 mole of H2
-    const o2Produced = molesOfWater / 2;       // 1 mole of water produces 0.5 moles of O2
-    const energyRequired = molesOfWater * 39.4; // Energy required in kWh (39.4 kWh per mole of water)
+    // Constants for calculations
+    const molarMassWater = 18.015; // g/mol
+    const energyPerMole = 39.4;     // kWh per mole of water
 
-    // Display results
+    // Perform calculations
+    const molesOfWater = waterAmount / molarMassWater; // Convert liters to moles
+    const h2Produced = molesOfWater;                    // Moles of H2 produced
+    const o2Produced = molesOfWater / 2;                // Moles of O2 produced
+    const energyRequired = molesOfWater * energyPerMole; // Total energy required
+
+    // Display results with better formatting
     document.getElementById("result").innerHTML = `
         <h2>Results:</h2>
-        H2 Produced: ${h2Produced.toFixed(2)} moles<br>
-        O2 Produced: ${o2Produced.toFixed(2)} moles<br>
-        Energy Required: ${energyRequired.toFixed(2)} kWh
+        <p><strong>H<sub>2</sub> Produced:</strong> ${h2Produced.toFixed(2)} moles</p>
+        <p><strong>O<sub>2</sub> Produced:</strong> ${o2Produced.toFixed(2)} moles</p>
+        <p><strong>Energy Required:</strong> ${energyRequired.toFixed(2)} kWh</p>
     `;
 }
+
+// Event listener for the button click
+document.getElementById("calculateButton").addEventListener("click", calculateResults);
+
 
