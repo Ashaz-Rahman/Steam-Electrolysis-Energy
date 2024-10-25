@@ -25,3 +25,4 @@ function calculateResults() {
         Energy Required: ${energyRequired.toFixed(2)} kWh
     `;
 }
+
